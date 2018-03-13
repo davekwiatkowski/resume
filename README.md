@@ -1,2 +1,2 @@
 # Dave Kwiatkowski Resume
-- Includes pdf and compilable LaTeX versions
+- Includes pdf and compilable LaTeX version
