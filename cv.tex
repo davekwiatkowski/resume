@@ -2,9 +2,11 @@
 
 % packages
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
 \usepackage[lmargin=13em, rmargin=8em, bmargin=8em, tmargin=8em]{geometry}
-\usepackage[document]{ragged2e}
 \usepackage[none]{hyphenat}
+\usepackage{microtype}
 \usepackage{paracol}
 \usepackage{xcolor}
 \usepackage{fontspec}
@@ -50,25 +52,23 @@
     \begin{minipage}{0.62\linewidth}
         {\color{title}\huge\bfseries\theauthor}
         \hfill
-        {\small\color{link} \href{http://davekwiatkowski.com}{davekwiatkowski.com} | \href{mailto:dave1@vt.edu}{dave1@vt.edu}}
+        {\small\color{link}\href{http://davekwiatkowski.com}{davekwiatkowski.com} | \href{mailto:dave1@vt.edu}{dave1@vt.edu}}
     \end{minipage}
     \vspace{3em}
 }
 
 % new commands
 \newcommand{\ChronoSubsection}[5]{
-    \makebox(-5,5)[rt]{\footnotesize\color{setting}\textit{\shortstack[r]{#3\\#4}}}
-    {\hspace{-0.25em}\large\bfseries\color{subsection}#1, #2}
+    \makebox(-5,5)[rt]{\footnotesize\color{setting}\textit{\shortstack[r]{#3\\#4}}}%
+    {\large\bfseries\color{subsection}#1, #2}
     \begin{trivlist}
-        \color{bullet}
-        #5
+        \color{bullet}#5
     \end{trivlist}
 }
 \newcommand{\Subsection}[2]{
     {\normalsize\bfseries\color{subsection}#1}
     \begin{trivlist}
-        \color{bullet}
-        #2
+        \color{bullet}#2
     \end{trivlist}
 }
 \newcommand{\ChronoItem}[2]{
@@ -77,7 +77,7 @@
 
 \begin{document}
 \maketitle
-\columnratio{0.64,}
+\columnratio{0.64}
 \begin{paracol}{2}
     \begin{leftcolumn}
         \section{Experience}
@@ -168,12 +168,12 @@
         \vfill
         \section{Skills}
             \Subsection{Coding}{
-                \item Proficient with CSS, D3.js, HTML, Java, JavaScript, jQuery, Pug,\\Sass/SCSS
-                \item Familiar with AngularJS, C, Node.js, SQL, TypeScript
+                \item Proficient with CSS, D3.js, HTML,\\Java, JavaScript, jQuery, Pug,\\Sass/SCSS
+                \item Familiar with AngularJS, C, Node.js,\\SQL, TypeScript
             }
             \vfill
             \Subsection{Tools}{
-                \item Chai, Derby Database, Git, Gulp,\\IBM\,Jazz, IBM\,Rational, Jasmine, Karma, LaTeX, Linux, Maven, Mocha, MySQL, Protractor, Sinon, Unix, Vim
+                \item Chai, Derby Database, Git, Gulp,\\IBM\,Jazz, IBM\,Rational, Jasmine,\\Karma, LaTeX, Linux, Maven, Mocha, MySQL, Protractor, Sinon, Unix, Vim
             }
             \vfill
             \Subsection{Other}{
