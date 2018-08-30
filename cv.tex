@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage[lmargin=13em, rmargin=8em, bmargin=8em, tmargin=8em]{geometry}
+\usepackage[lmargin=13em, rmargin=9em, bmargin=8em, tmargin=9em]{geometry}
 \usepackage[none]{hyphenat}
 \usepackage{microtype}
 \usepackage{paracol}
@@ -37,6 +37,7 @@
 \maxdeadcycles=200
 \flushbottom
 \setlength\parindent{0pt}
+\setlength\columnsep{2em}
 \setlist[trivlist]{itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt}
 
 % title formatting
@@ -49,7 +50,7 @@
 % renew commands
 \renewcommand{\baselinestretch}{1}
 \renewcommand{\maketitle}{
-    \begin{minipage}{0.62\linewidth}
+    \begin{minipage}{0.65\linewidth}
         {\color{title}\huge\bfseries\theauthor}
         \hfill
         {\small\color{link}\href{http://davekwiatkowski.com}{davekwiatkowski.com} | \href{mailto:dave1@vt.edu}{dave1@vt.edu}}
@@ -78,7 +79,7 @@
 % document
 \begin{document}
 \maketitle
-\columnratio{0.64}
+\columnratio{0.68}
 \raggedright\begin{paracol}{2}
     \begin{leftcolumn}
         \section{Experience}
