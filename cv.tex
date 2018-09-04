@@ -1,10 +1,9 @@
 \documentclass[9pt]{extarticle}
 
-% packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage[lmargin=13em, rmargin=9em, bmargin=8em, tmargin=9em]{geometry}
+\usepackage[lmargin=13em, rmargin=9em, bmargin=9em, tmargin=9em]{geometry}
 \usepackage[none]{hyphenat}
 \usepackage{microtype}
 \usepackage{paracol}
@@ -16,15 +15,15 @@
 \usepackage{hyperref}
 \usepackage{microtype}
 \usepackage{enumitem}
+\usepackage{xifthen}
 
-% make colors
 \definecolor{lightColor}{HTML}{aaacad}
 \definecolor{darkColor}{HTML}{3a3c3d}
 
-% assign colors
 \colorlet{title}{darkColor}
 \colorlet{section}{lightColor}
-\colorlet{subsection}{darkColor}
+\colorlet{subtitle}{darkColor}
+\colorlet{subtitleInfo}{lightColor}
 \colorlet{bullet}{lightColor}
 \colorlet{setting}{lightColor}
 \colorlet{divider}{lightColor}
@@ -34,164 +33,160 @@
 \author{Dave Kwiatkowski}
 \setmainfont{Roboto}
 \pagenumbering{gobble}
-\maxdeadcycles=200
+\maxdeadcycles=300
 \flushbottom
 \setlength\parindent{0pt}
 \setlength\columnsep{2em}
 \setlist[trivlist]{itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt}
 
+% new commands
+\newcommand{\LinkSep}{ . }
+\newcommand{\DateSep}{--}
+\newcommand{\ChronoBulletSep}{ | }
+\newcommand{\SubtitleInfoSep}{, }
+\newcommand{\Bullet}[1]{\item{\color{bullet}#1}}
+\newcommand{\Bullets}[1]{\begin{trivlist}#1\end{trivlist}}
+\newcommand{\Setting}[1]{{\color{setting}\footnotesize\textit{#1}}}
+\newcommand{\Subtitle}[1]{{\color{subtitle}\normalsize\bfseries#1}}
+\newcommand{\SubtitleInfo}[1]{{\color{subtitleInfo}\SubtitleInfoSep#1}}
+\newcommand{\SubtitleAndInfo}[2]{\Subtitle{#1}\SubtitleInfo{#2}}
+\newcommand{\Date}[1]{\Setting{#1}}
+\newcommand{\Dates}[2]{\ifthenelse{\isempty{#2}}{\Date{#1}}{\Date{#1}\Setting{\DateSep}\Date{#2}}}
+\newcommand{\SettingAndDates}[3]{\makebox(-5,5)[rt]{\shortstack[r]{\Setting{#1}\\\Dates{#2}{#3}}}}
+\newcommand{\Subsection}[2]{\Subtitle{#1}\Bullets{#2}}
+\newcommand{\ChronoBullet}[3]{\Bullet{#1\ChronoBulletSep\Dates{#2}{#3}}}
+\newcommand{\ChronoSubsection}[6]{\SettingAndDates{#3}{#4}{#5}\SubtitleAndInfo{#2}{#1}\Bullets{#6}}
+
 % title formatting
-\titleformat{\section}
-    {\color{section}\Large\bfseries}
-    {}
-    {0em}
-    {}[\color{divider}\vskip0.5em\hrule height 0.25pt]
+\titleformat{\section}{\color{section}\Large\bfseries}{}{0em}{}[\color{divider}\vskip0.5em\hrule height 0.25pt]
 
 % renew commands
 \renewcommand{\baselinestretch}{1}
-\renewcommand{\maketitle}{
-    \begin{minipage}{0.65\linewidth}
+\renewcommand{\maketitle}{%
+    \begin{minipage}{0.64\linewidth}%
         {\color{title}\huge\bfseries\theauthor}
         \hfill
-        {\small\color{link}\href{http://davekwiatkowski.com}{davekwiatkowski.com} | \href{mailto:dave1@vt.edu}{dave1@vt.edu}}
+        {\small\color{link}\href{http://davekwiatkowski.com}{davekwiatkowski.com}\LinkSep\href{mailto:dave1@vt.edu}{dave1@vt.edu}}
     \end{minipage}
     \vspace{3em}
-}
-
-% new commands
-\newcommand{\ChronoSubsection}[5]{
-    \makebox(-5,5)[rt]{\footnotesize\color{setting}\textit{\shortstack[r]{#3\\#4}}}%
-    {\large\bfseries\color{subsection}#1, #2}
-    \begin{trivlist}
-        \color{bullet}#5
-    \end{trivlist}
-}
-\newcommand{\Subsection}[2]{
-    {\normalsize\bfseries\color{subsection}#1}
-    \begin{trivlist}
-        \color{bullet}#2
-    \end{trivlist}
-}
-\newcommand{\ChronoItem}[2]{
-    \item {\color{bullet}#1 | {\footnotesize\textit{#2}}}
 }
 
 % document
 \begin{document}
 \maketitle
-\columnratio{0.68}
+\columnratio{0.67}
 \raggedright\begin{paracol}{2}
     \begin{leftcolumn}
         \section{Experience}
-            \ChronoSubsection{Software Engineer Intern}{Microsoft}{Redmond, WA}{09/18--11/18}{
-                \item Working on PowerApps in the Fall
+            \ChronoSubsection{Software Engineer Intern}{Microsoft}{Redmond, WA}{09/18}{11/18}{
+                \Bullet{Working on PowerApps in the Fall}
             }
             \vfill
-            \ChronoSubsection{Software Engineer Intern}{Microsoft}{Redmond, WA}{05/18--08/18}{
-                \item Optimized and organized iOS and Android file logging via buffering
-                \item Integrated API for incident creation, mitigation, and analysis
-                \item Improved serviceability by catching network activity and telemetry
-                \item Accelerated API token authentication process via Gulp tasks
-                \item Automated Java and Objective-C feature-gate files via TypeScript
+            \ChronoSubsection{Software Engineer Intern}{Microsoft}{Redmond, WA}{05/18}{08/18}{
+                \Bullet{Optimized and organized iOS and Android file logging via buffering}
+                \Bullet{Integrated API for incident creation, mitigation, and analysis}
+                \Bullet{Improved serviceability by catching network activity and telemetry}
+                \Bullet{Accelerated API token authentication process via Gulp tasks}
+                \Bullet{Automated Java and Objective-C feature-gate files via TypeScript}
             }
             \vfill
-            \ChronoSubsection{Software Engineer Intern}{Fidelity Investments}{Durham, NC}{05/17--08/17}{
-                \item Developed web app UI with Angular 2 and unified style in Sass
-                \item Managed Node.js development of temporary file alteration service
-                \item Implemented RESTful web services and SQL database queries
-                \item Tested full-stack of web app with unit and integration tests
+            \ChronoSubsection{Software Engineer Intern}{Fidelity Investments}{Durham, NC}{05/17}{08/17}{
+                \Bullet{Developed web app UI with Angular 2 and unified style in Sass}
+                \Bullet{Managed Node.js development of temporary file alteration service}
+                \Bullet{Implemented RESTful web services and SQL database queries}
+                \Bullet{Tested full-stack of web app with unit and integration tests}
             }
             \vfill
-            \ChronoSubsection{Computer Science TA}{Virginia Tech}{Blacksburg, VA}{08/16--05/17}{
-                \item Taught Java software design and data structures to students
-                \item Improved coding comprehension by refining curriculum
-                \item Supported students in the fundamentals of OOP in Java
+            \ChronoSubsection{Computer Science TA}{Virginia Tech}{Blacksburg, VA}{08/16}{05/17}{
+                \Bullet{Taught Java software design and data structures to students}
+                \Bullet{Improved coding comprehension by refining curriculum}
+                \Bullet{Supported students in the fundamentals of OOP in Java}
             }
             \vfill
-            \ChronoSubsection{Software Engineer Intern}{General Dynamics MS}{Fairfax, VA}{05/16--08/16}{
-                \item Awarded as 1 of 1st 3 interns delivering mission critical product
-                \item Reduced scenario build time by 5 minutes in Java/Maven app
-                \item Achieved real-time data exchanges via DDS and Derby database
-                \item Designed responsive GUI for 2D and 3D dashboards via JavaFX
+            \ChronoSubsection{Software Engineer Intern}{General Dynamics MS}{Fairfax, VA}{05/16}{08/16}{
+                \Bullet{Awarded as 1 of 1st 3 interns delivering mission critical product}
+                \Bullet{Reduced scenario build time by 5 minutes in Java/Maven app}
+                \Bullet{Achieved real-time data exchanges via DDS and Derby database}
+                \Bullet{Designed responsive GUI for 2D and 3D dashboards via JavaFX}
             }
             \vfill
-            \ChronoSubsection{Software Engineer Intern}{University of Virginia}{Charlottesville, VA}{07/14--01/15}{
-                \item Initiated development of a multi-user JavaScript web app
-                \item Improved UX by designing multi-platform interface via CSS
-                \item Deployed MySQL database integrated with PHP communications
+            \ChronoSubsection{Software Engineer Intern}{University of Virginia}{Charlottesville, VA}{07/14}{01/15}{
+                \Bullet{Initiated development of a multi-user JavaScript web app}
+                \Bullet{Improved UX by designing multi-platform interface via CSS}
+                \Bullet{Deployed MySQL database integrated with PHP communications}
             }
         \vfill
         \section{Projects}
-            \ChronoSubsection{Personalized Credit Card Analysis}{What's in Your Wallet}{Capital One}{01/17}{
-                \item 1st Place in Capital One Software Engineering Summit
-                \item Designed responsive Node.js app with organized Sass styling
-                \item Energized UX with animated elements and jQuery events
-                \item Streamlined development with modular Pug templating
+            \ChronoSubsection{Personalized Credit Card Analysis}{What's in Your Wallet}{Capital One}{01/17}{}{
+                \Bullet{1st Place in Capital One Software Engineering Summit}
+                \Bullet{Designed responsive Node.js app with organized Sass styling}
+                \Bullet{Energized UX with animated elements and jQuery events}
+                \Bullet{Streamlined development with modular Pug templating}
             }
             \vfill
-            \ChronoSubsection{WebGL Global Data Visualization}{Web \& Happiness}{Capital One}{10/16}{
-                \item 3rd Place in Capital One Global Data Visualization Challenge
-                \item Created procedural Gulp tasks for fluid, comprehensive builds
-                \item Made user interactive JSON queries with Google Chart API
-                \item Modularized styling via cross-platform SCSS components
+            \ChronoSubsection{WebGL Global Data Visualization}{Web \& Happiness}{Capital One}{10/16}{}{
+                \Bullet{3rd Place in Capital One Global Data Visualization Challenge}
+                \Bullet{Created procedural Gulp tasks for fluid, comprehensive builds}
+                \Bullet{Made user interactive JSON queries with Google Chart API}
+                \Bullet{Modularized styling via cross-platform SCSS components}
             }
         \pagebreak
     \end{leftcolumn}
     \begin{rightcolumn}
         \section{Education}
             \Subsection{Virginia Tech}{
-                \item BS, Computer Science
-                \item Expected Graduation: 05/19
-                \item In-Major GPA: 3.50/4.00
-                \item Dean's List 3 Semesters
+                \Bullet{BS, Computer Science}
+                \Bullet{Expected Graduation: 05/19}
+                \Bullet{In-Major GPA: 3.50/4.00}
+                \Bullet{Dean's List 3 Semesters}
             }
         \vfill
         \section{Involvement}
             \Subsection{Hackers at Virginia Tech}{
-                \ChronoItem{Designer}{08/18--Present}
-                \ChronoItem{Head of Advertising}{05/17--08/18}
-                \ChronoItem{Web Designer}{08/16--05/17}
+                \ChronoBullet{Designer}{08/18}{Present}
+                \ChronoBullet{Head of Advertising}{05/17}{08/18}
+                \ChronoBullet{Web Designer}{08/16}{05/17}
             }
             \vfill
             \Subsection{Computer Science Department}{
-                \ChronoItem{Ambassador}{08/16--05/18}
+                \ChronoBullet{Ambassador}{08/16}{05/18}
             }
             \vfill
             \Subsection{Computer Science Mentoring}{
-                \ChronoItem{Mentor}{08/16--12/17}
+                \ChronoBullet{Mentor}{08/16}{12/17}
             }
             \vfill
             \Subsection{CodePath University}{
-                \ChronoItem{Teaching Assistant}{08/16--12/16}
+                \ChronoBullet{Teaching Assistant}{08/16}{12/16}
             }
             \vfill
             \Subsection{ACM-ICPC Programming Team}{
-                \ChronoItem{Member}{01/16--05/17}
+                \ChronoBullet{Member}{01/16}{05/17}
             }
             \vfill
             \Subsection{Running Club at Virginia Tech}{
-                \ChronoItem{Webmaster}{01/16--05/17}
+                \ChronoBullet{Webmaster}{01/16}{05/17}
             }
             \vfill
             \Subsection{Boy Scouts of America}{
-                \ChronoItem{Eagle Scout}{12/12--Present}
+                \ChronoBullet{Eagle Scout}{12/12}{Present}
             }
         \vfill
         \section{Skills}
             \Subsection{Coding}{
-                \item Proficient with CSS, HTML, Java, JavaScript, jQuery, Pug, Sass/SCSS, TypeScript
-                \item Familiar with AngularJS, C, Node.js, Objective-C, React, React Native, Redux
+                \Bullet{Proficient with CSS, HTML, Java, JavaScript, jQuery, Node.js, Pug, Sass/SCSS, TypeScript}
+                \vfill
+                \Bullet{Familiar with AngularJS, C, Objective-C, React, React Native, Redux}
             }
             \vfill
             \Subsection{Tools}{
-                \item Git, Gulp, Integration/Unit Testing, LaTeX, Unix CLI, Vim
+                \Bullet{Git, Gulp, Integration/Unit Testing, LaTeX, Unix CLI, Vim}
             }
             \vfill
             \Subsection{Other}{
-                \item Advertisement Design, Android Development, Computer Graphics, iOS Development, User Interfaces, Web Design
+                \Bullet{Advertisement Design, Android Development, Computer Graphics, iOS Development, User Interfaces, Web Design}
             }
         \pagebreak
     \end{rightcolumn}
 \end{paracol}
-
 \end{document}
