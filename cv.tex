@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-\usepackage[lmargin=13em, rmargin=9em, bmargin=9em, tmargin=9em]{geometry}
+\usepackage[lmargin=1in, rmargin=1in, bmargin=1in, tmargin=1in]{geometry}
 \usepackage[none]{hyphenat}
 \usepackage{microtype}
 \usepackage{paracol}
@@ -18,54 +18,58 @@
 \usepackage{xifthen}
 
 \definecolor{darkColor}{HTML}{000000}
-\definecolor{lightColor}{HTML}{6a6a6a}
+\definecolor{normalColor}{HTML}{6a6a6a}
+\definecolor{lightColor}{HTML}{a4a4a4}
 \definecolor{accentColor}{HTML}{0057ff}
 
 \colorlet{title}{darkColor}
 \colorlet{subtitle}{darkColor}
 \colorlet{subtitleInfo}{darkColor}
-\colorlet{bullet}{lightColor}
-\colorlet{link}{lightColor}
+\colorlet{bullet}{normalColor}
+\colorlet{link}{normalColor}
+\colorlet{section}{lightColor}
 \colorlet{setting}{lightColor}
-\colorlet{section}{accentColor}
+\colorlet{bulletMark}{accentColor}
+\colorlet{divider}{accentColor}
 
 % settings
 \author{Dave Kwiatkowski}
 \setmainfont{Roboto}
 \pagenumbering{gobble}
-\maxdeadcycles=300
+\maxdeadcycles=400
 \flushbottom
 \setlength\parindent{0pt}
-\setlength\columnsep{2em}
+\setlength\columnsep{4em}
 \setlist[trivlist]{itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt}
 
 % new commands
 \newcommand{\LinkSep}{ . }
 \newcommand{\DateSep}{--}
-\newcommand{\ChronoBulletSep}{, }
-\newcommand{\SubtitleInfoSep}{, }
-\newcommand{\Bullet}[1]{\item{\color{bullet}#1}}
+\newcommand{\SettingSep}{\Setting{ | }}
+\newcommand{\InfoSep}{, }
+\newcommand{\BulletMark}{{\color{bulletMark}\bfseries.}}
+\newcommand{\SideBox}[1]{\makebox(-3.5,3.5)[rt]{#1}}
+\newcommand{\Bullet}[1]{\item\SideBox{\BulletMark}{\color{bullet}#1}}
 \newcommand{\Bullets}[1]{\begin{trivlist}#1\end{trivlist}}
 \newcommand{\Setting}[1]{{\color{setting}\footnotesize\textit{#1}}}
 \newcommand{\Subtitle}[1]{{\color{subtitle}\normalsize\bfseries#1}}
-\newcommand{\SubtitleInfo}[1]{{\color{subtitleInfo}\SubtitleInfoSep#1}}
-\newcommand{\SubtitleAndInfo}[2]{\Subtitle{#1}\SubtitleInfo{#2}}
+\newcommand{\SubtitleInfo}[1]{{\color{subtitleInfo}#1}}
+\newcommand{\SubtitleAndInfo}[2]{\Subtitle{#1}\InfoSep\SubtitleInfo{#2}}
 \newcommand{\Date}[1]{\Setting{#1}}
 \newcommand{\Dates}[2]{\ifthenelse{\isempty{#2}}{\Date{#1}}{\Date{#1}\Setting{\DateSep}\Date{#2}}}
-\newcommand{\SettingAndDates}[3]{\makebox(-5,5)[rt]{\shortstack[r]{\Setting{#1}\\\Dates{#2}{#3}}}}
+\newcommand{\SettingAndDates}[3]{\InfoSep\Dates{#2}{#3}\SettingSep\Setting{#1}}
 \newcommand{\Subsection}[2]{\Subtitle{#1}\Bullets{#2}}
-\newcommand{\ChronoBullet}[3]{\Bullet{#1\Dates{\ChronoBulletSep#2}{#3}}}
-\newcommand{\ChronoSubsection}[6]{\SettingAndDates{#3}{#4}{#5}\SubtitleAndInfo{#2}{#1}\Bullets{#6}}
+\newcommand{\ChronoBullet}[3]{\Bullet{#1\InfoSep\Dates{#2}{#3}}}
+\newcommand{\ChronoSubsection}[6]{\SubtitleAndInfo{#2}{#1}\SettingAndDates{#3}{#4}{#5}\Bullets{#6}}
 
 % title formatting
-\titleformat{\section}{\color{section}\Large\bfseries}{}{0em}{}[]
+\titleformat{\section}{\color{section}\Large\bfseries}{}{0em}{}[{\color{divider}\vskip 0.5em\hrule height 1pt width 40pt}]
 
 % renew commands
 \renewcommand{\baselinestretch}{1}
 \renewcommand{\maketitle}{%
-    \begin{minipage}{0.64\linewidth}%
-        {\color{title}\huge\bfseries\theauthor}
-        \hfill
+    \begin{minipage}{0.62\linewidth}%
+        {\color{title}\huge\bfseries\theauthor\space}%
         {\small\color{link}\href{http://davekwiatkowski.com}{davekwiatkowski.com}\LinkSep\href{mailto:dave1@vt.edu}{dave1@vt.edu}}
     \end{minipage}
     \vspace{3em}
@@ -164,10 +168,6 @@
                 \ChronoBullet{Member}{01/16}{05/17}
             }
             \vfill
-            \Subsection{Running Club at Virginia Tech}{
-                \ChronoBullet{Webmaster}{01/16}{05/17}
-            }
-            \vfill
             \Subsection{Boy Scouts of America}{
                 \ChronoBullet{Eagle Scout}{12/12}{Present}
             }
@@ -175,7 +175,6 @@
         \section{Skills}
             \Subsection{Coding}{
                 \Bullet{Proficient with CSS, HTML, Java, JavaScript, jQuery, Node.js, Pug, Sass/SCSS, TypeScript}
-                \vfill
                 \Bullet{Familiar with AngularJS, C, Objective-C, React, React Native, Redux}
             }
             \vfill
@@ -184,7 +183,7 @@
             }
             \vfill
             \Subsection{Other}{
-                \Bullet{Advertisement Design, Android Development, Computer Graphics, iOS Development, User Interfaces, Web Design}
+                \Bullet{Android Development, Computer Graphics, iOS Development,  Web Design}
             }
         \pagebreak
     \end{rightcolumn}
