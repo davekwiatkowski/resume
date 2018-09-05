@@ -19,15 +19,15 @@
 
 \definecolor{darkColor}{HTML}{000000}
 \definecolor{lightColor}{HTML}{6a6a6a}
+\definecolor{accentColor}{HTML}{0057ff}
 
 \colorlet{title}{darkColor}
 \colorlet{subtitle}{darkColor}
-\colorlet{subtitleInfo}{lightColor}
+\colorlet{subtitleInfo}{darkColor}
 \colorlet{bullet}{lightColor}
 \colorlet{link}{lightColor}
-\colorlet{section}{lightColor}
-\colorlet{divider}{lightColor}
 \colorlet{setting}{lightColor}
+\colorlet{section}{accentColor}
 
 % settings
 \author{Dave Kwiatkowski}
@@ -54,11 +54,11 @@
 \newcommand{\Dates}[2]{\ifthenelse{\isempty{#2}}{\Date{#1}}{\Date{#1}\Setting{\DateSep}\Date{#2}}}
 \newcommand{\SettingAndDates}[3]{\makebox(-5,5)[rt]{\shortstack[r]{\Setting{#1}\\\Dates{#2}{#3}}}}
 \newcommand{\Subsection}[2]{\Subtitle{#1}\Bullets{#2}}
-\newcommand{\ChronoBullet}[3]{\Bullet{#1\ChronoBulletSep\Dates{#2}{#3}}}
+\newcommand{\ChronoBullet}[3]{\Bullet{#1\Dates{\ChronoBulletSep#2}{#3}}}
 \newcommand{\ChronoSubsection}[6]{\SettingAndDates{#3}{#4}{#5}\SubtitleAndInfo{#2}{#1}\Bullets{#6}}
 
 % title formatting
-\titleformat{\section}{\color{section}\Large\bfseries}{}{0em}{}[\color{divider}\vskip0.5em\hrule height 0.25pt]
+\titleformat{\section}{\color{section}\Large\bfseries}{}{0em}{}[]
 
 % renew commands
 \renewcommand{\baselinestretch}{1}
