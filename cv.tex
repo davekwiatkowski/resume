@@ -20,7 +20,7 @@
 \definecolor{darkColor}{HTML}{000000}
 \definecolor{normalColor}{HTML}{6a6a6a}
 \definecolor{lightColor}{HTML}{a4a4a4}
-\definecolor{accentColor}{HTML}{0057ff}
+\definecolor{accentColor}{HTML}{4885ed}
 
 \colorlet{title}{darkColor}
 \colorlet{subtitle}{darkColor}
@@ -63,7 +63,7 @@
 \newcommand{\ChronoSubsection}[6]{\SubtitleAndInfo{#2}{#1}\SettingAndDates{#3}{#4}{#5}\Bullets{#6}}
 
 % title formatting
-\titleformat{\section}{\color{section}\Large\bfseries}{}{0em}{}[{\color{divider}\vskip 0.5em\hrule height 1pt width 40pt}]
+\titleformat{\section}{\color{section}\Large\bfseries}{}{0em}{}[{\color{divider}\vskip 0.5em\hrule height 1pt width 30pt}]
 
 % renew commands
 \renewcommand{\baselinestretch}{1}
@@ -83,7 +83,10 @@
     \begin{leftcolumn}
         \section{Experience}
             \ChronoSubsection{Software Engineer Intern}{Microsoft}{Redmond, WA}{09/18}{11/18}{
-                \Bullet{Working on PowerApps in the Fall}
+                \Bullet{Revamped entire Dynamics 365 mobile UI by introducing React Native}
+                \Bullet{Saved time by introducing intelligent incident remedies to PowerApps}
+                \Bullet{Built incident creation process using React Redux, Objective-C, and Java}
+                \Bullet{Modularized and migrated React entities for cross-product development}
             }
             \vfill
             \ChronoSubsection{Software Engineer Intern}{Microsoft}{Redmond, WA}{05/18}{08/18}{
@@ -174,8 +177,8 @@
         \vfill
         \section{Skills}
             \Subsection{Coding}{
-                \Bullet{Proficient with CSS, HTML, Java, JavaScript, jQuery, Node.js, Pug, Sass/SCSS, TypeScript}
-                \Bullet{Familiar with AngularJS, C, Objective-C, React, React Native, Redux}
+                \Bullet{Proficient with CSS, HTML, Java, JavaScript, jQuery, Node.js, Pug, React, React Native, React Redux, Sass/SCSS, TypeScript}
+                \Bullet{Familiar with C, Objective-C}
             }
             \vfill
             \Subsection{Tools}{
@@ -183,7 +186,7 @@
             }
             \vfill
             \Subsection{Other}{
-                \Bullet{Android Development, Computer Graphics, iOS Development,  Web Design}
+                \Bullet{Android Development, Computer Graphics, iOS Development, Web Design}
             }
         \pagebreak
     \end{rightcolumn}
