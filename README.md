@@ -8,3 +8,5 @@ This LaTeX file makes use of [XeLaTeX](https://www.sharelatex.com/learn/XeLaTeX)
 Build PDF via command: `xelatex cv.tex`
 ## Credit
 Design inspired by [Lisa Vuong](https://github.com/LisaVuong/me-irl/blob/master/lisavuong_resume.pdf)
+## Resume tips
+* Follow format for bullet points: "Accomplished [X], as measured by [Y], by doing [Z]." -- Google representatives
