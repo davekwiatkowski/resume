@@ -1,4 +1,4 @@
-# Dave Kwiatkowski's Resume
+# Dave Kwiatkowski's resume
 ## Note
 This LaTeX file makes use of [XeLaTeX](https://www.sharelatex.com/learn/XeLaTeX) in order to use custom fonts
 ## Setup
