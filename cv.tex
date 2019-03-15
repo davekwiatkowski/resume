@@ -17,10 +17,10 @@
 \usepackage{enumitem}
 \usepackage{xifthen}
 
-\definecolor{darkColor}{HTML}{050709}
-\definecolor{normalColor}{HTML}{696969}
-\definecolor{lightColor}{HTML}{999999}
-\definecolor{accentColor}{HTML}{0084ff}
+\definecolor{darkColor}{HTML}{070707}
+\definecolor{normalColor}{HTML}{707070}
+\definecolor{lightColor}{HTML}{a0a0a0}
+\definecolor{accentColor}{HTML}{b7b7b7}
 
 \colorlet{title}{darkColor}
 \colorlet{subtitle}{darkColor}
@@ -30,7 +30,6 @@
 \colorlet{section}{accentColor}
 \colorlet{setting}{lightColor}
 \colorlet{bulletMark}{accentColor}
-\colorlet{divider}{accentColor}
 
 % settings
 \author{Dave Kwiatkowski}
@@ -47,12 +46,12 @@
 \newcommand{\DateSep}{--}
 \newcommand{\SettingSep}{\Setting{ | }}
 \newcommand{\InfoSep}{, }
-\newcommand{\BulletMark}{{\color{bulletMark}\Large\bfseries.}}
+\newcommand{\BulletMark}{{\color{bulletMark}\large\bfseries.}}
 \newcommand{\SideBox}[1]{\makebox(-3.5,3.5)[rt]{#1}}
 \newcommand{\Bullet}[1]{\item\SideBox{\BulletMark}{\color{bullet}#1}}
 \newcommand{\Bullets}[1]{\begin{trivlist}#1\end{trivlist}}
 \newcommand{\Setting}[1]{{\color{setting}\footnotesize\textit{#1}}}
-\newcommand{\Subtitle}[1]{{\color{subtitle}\normalsize\bfseries#1}}
+\newcommand{\Subtitle}[1]{{\color{subtitle}\large\bfseries#1}}
 \newcommand{\SubtitleInfo}[1]{{\color{subtitleInfo}#1}}
 \newcommand{\SubtitleAndInfo}[2]{\Subtitle{#1}\InfoSep\SubtitleInfo{#2}}
 \newcommand{\Date}[1]{\Setting{#1}}
@@ -63,7 +62,7 @@
 \newcommand{\ChronoSubsection}[6]{\SubtitleAndInfo{#2}{#1}\SettingAndDates{#3}{#4}{#5}\Bullets{#6}}
 
 % title formatting
-\titleformat{\section}{\color{section}\Large\bfseries}{}{0em}{}[]
+\titleformat{\section}{\color{section}\huge\bfseries}{}{0em}{}[]
 
 % renew commands
 \renewcommand{\baselinestretch}{1}
@@ -104,20 +103,20 @@
         \Bullet{Refined web app quality via frequent unit tests and integration tests}
       }
       \vfill
+      \ChronoSubsection{Computer Science TA}{Virginia Tech}{Blacksburg, VA}{08/16}{05/17}{	
+        \Bullet{Raised software design and data structure knowledge via help sessions}	
+        \Bullet{Improved students' coding comprehension by refining curriculum}	
+        \Bullet{Boosted object oriented programming understanding via 1 on 1 tutoring}	
+      }	
+      \vfill
       \ChronoSubsection{Software Engineer Intern}{General Dynamics MS}{Fairfax, VA}{05/16}{08/16}{
         \Bullet{Awarded as one of the 1st interns delivering mission critical product}
         \Bullet{Reduced build time by 5 minutes in JavaFX, Maven app via multithreading}
         \Bullet{Achieved real-time data communication and storage via Derby database}
       }
-      \vfill
-      \ChronoSubsection{Software Engineer Intern}{University of Virginia}{Charlottesville, VA}{07/14}{01/15}{
-        \Bullet{Initiated development of multi-user web app via JavaScript}
-        \Bullet{Raised user experience by designing multi-platform interface via CSS}
-        \Bullet{Deployed MySQL database integrated with PHP communications}
-      }
     \vfill
     \section{Projects}
-      \ChronoSubsection{Personalized Credit Card Analysis}{What's in Your Wallet}{Capital One}{01/17}{}{
+      \ChronoSubsection{Custom Credit Card Analysis}{What's in Your Wallet}{Capital One}{01/17}{}{
         \Bullet{Awarded 1st Place in Capital One Software Engineering Summit}
         \Bullet{Energized UX with animated elements and events via jQuery}
         \Bullet{Streamlined Node.js app development templating via Pug and Sass}
@@ -160,9 +159,8 @@
         \ChronoBullet{Web Designer}{08/16}{05/17}
       }
       \vfill
-      \Subsection{Computer Science Department}{
+      \Subsection{Computer Science Dept.}{
         \ChronoBullet{Ambassador}{08/16}{05/18}
-        \ChronoBullet{Teaching Assistant}{08/16}{05/17}
       }
       \vfill
       \Subsection{Computer Science Mentoring}{
@@ -173,7 +171,7 @@
         \ChronoBullet{Teaching Assistant}{08/16}{12/16}
       }
       \vfill
-      \Subsection{ACM-ICPC Programming Team}{
+      \Subsection{ICPC Programming Team}{
         \ChronoBullet{Member}{01/16}{05/17}
       }
     \pagebreak
