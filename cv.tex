@@ -27,7 +27,7 @@
 \colorlet{subtitleInfo}{darkColor}
 \colorlet{bullet}{normalColor}
 \colorlet{link}{normalColor}
-\colorlet{section}{lightColor}
+\colorlet{section}{accentColor}
 \colorlet{setting}{lightColor}
 \colorlet{bulletMark}{accentColor}
 \colorlet{divider}{accentColor}
@@ -63,13 +63,13 @@
 \newcommand{\ChronoSubsection}[6]{\SubtitleAndInfo{#2}{#1}\SettingAndDates{#3}{#4}{#5}\Bullets{#6}}
 
 % title formatting
-\titleformat{\section}{\color{section}\Large\bfseries}{}{0em}{}[{\color{divider}\vskip 0.5em\hrule height 1pt width 30pt}]
+\titleformat{\section}{\color{section}\Large\bfseries}{}{0em}{}[]
 
 % renew commands
 \renewcommand{\baselinestretch}{1}
 \renewcommand{\maketitle}{%
   \begin{minipage}{0.62\linewidth}%
-    {\color{title}\huge\bfseries\theauthor\space}%
+    {\color{title}\Huge\bfseries\theauthor\space}%
     {\small\color{link}\href{http://davekwiatkowski.com}{davekwiatkowski.com}\LinkSep\href{mailto:dave1@vt.edu}{dave1@vt.edu}}
   \end{minipage}
   \vspace{3em}
