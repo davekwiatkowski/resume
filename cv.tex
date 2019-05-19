@@ -42,7 +42,7 @@
 \setlist[trivlist]{itemsep=0pt, topsep=0pt, parsep=0pt, partopsep=0pt}
 
 % new commands
-\newcommand{\LinkSep}{ . }
+\newcommand{\LinkSep}{ | }
 \newcommand{\DateSep}{--}
 \newcommand{\SettingSep}{\Setting{ | }}
 \newcommand{\InfoSep}{, }
@@ -60,6 +60,8 @@
 \newcommand{\Subsection}[2]{\Subtitle{#1}\Bullets{#2}}
 \newcommand{\ChronoBullet}[3]{\Bullet{#1\InfoSep\Dates{#2}{#3}}}
 \newcommand{\ChronoSubsection}[6]{\SubtitleAndInfo{#2}{#1}\SettingAndDates{#3}{#4}{#5}\Bullets{#6}}
+\newcommand{\Website}[1]{{\href{https://#1}{#1}}}
+\newcommand{\Email}[1]{{\href{mailto:#1}{#1}}}
 
 % title formatting
 \titleformat{\section}{\color{section}\huge\bfseries}{}{0em}{}[]
@@ -67,11 +69,9 @@
 % renew commands
 \renewcommand{\baselinestretch}{1}
 \renewcommand{\maketitle}{%
-  \begin{minipage}{0.62\linewidth}%
-    {\color{title}\Huge\bfseries\theauthor\space}%
-    {\small\color{link}\href{http://davekwiatkowski.com}{davekwiatkowski.com}\LinkSep\href{mailto:dave1@vt.edu}{dave1@vt.edu}}
-  \end{minipage}
-  \vspace{3em}
+  {\color{title}\Huge\bfseries\theauthor\space}%
+  {\color{link}\small\Website{davekwiatkowski.com}\LinkSep\Email{hi@davekwiatkowski.com}}%
+  \vspace{2em}
 }
 
 % document
