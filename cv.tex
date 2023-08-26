@@ -19,8 +19,8 @@
 
 \definecolor{darkColor}{HTML}{000000}
 \definecolor{normalColor}{HTML}{757575}
-\definecolor{lightColor}{HTML}{9e9e9e}
-\definecolor{accentColor}{HTML}{bdbdbd}
+\definecolor{lightColor}{HTML}{757575}
+\definecolor{accentColor}{HTML}{949494}
 
 \colorlet{title}{darkColor}
 \colorlet{subtitle}{darkColor}
@@ -60,6 +60,7 @@
 \newcommand{\Subsection}[2]{\Subtitle{#1}\Bullets{#2}}
 \newcommand{\ChronoBullet}[3]{\Bullet{#1\InfoSep\Dates{#2}{#3}}}
 \newcommand{\ChronoSubsection}[6]{\SubtitleAndInfo{#2}{#1}\SettingAndDates{#3}{#4}{#5}\Bullets{#6}}
+\newcommand{\ChronoSubsectionNoBullets}[5]{\SubtitleAndInfo{#2}{#1}\SettingAndDates{#3}{#4}{#5}}
 \newcommand{\Website}[1]{{\href{https://#1}{#1}}}
 \newcommand{\Email}[1]{{\href{mailto:#1}{#1}}}
 
@@ -81,9 +82,7 @@
 \raggedright\begin{paracol}{2}
   \begin{leftcolumn}
     \section{Experience}
-      \ChronoSubsection{3402 miles in 76 days}{Ran across America}{San Francisco to Virginia Beach}{05/23}{07/23}{
-        \Bullet{Learned about my country and its people}
-      }
+      \ChronoSubsectionNoBullets{3402 miles in 76 days}{Ran across America}{San Francisco, CA}{05/23}{07/23}
       \vfill
       \ChronoSubsection{Software Engineer II}{UiPath}{Bellevue, WA}{03/21}{02/23}{
         \Bullet{Built custom React, Angular, and web components shared between products}
@@ -110,60 +109,41 @@
       }
       \vfill
       \ChronoSubsection{Software Engineer Intern}{Fidelity Investments}{Durham, NC}{05/17}{08/17}{
-        \Bullet{Led temporary file alteration service development via AngularJS and Sass}
-        \Bullet{Added features via creating REST services and SQL database queries}
-        \Bullet{Refined web app quality via frequent unit tests and integration tests}
+        \Bullet{Made features via AngularJS, Sass, REST API development, and SQL queries}
       }
       \vfill
       \ChronoSubsection{Computer Science TA}{Virginia Tech}{Blacksburg, VA}{08/16}{05/17}{
-        \Bullet{Raised software design and data structure knowledge via help sessions}
-        \Bullet{Escalated students' coding comprehension by refining curriculum}
-        \Bullet{Advanced object oriented programming understanding via 1 on 1 tutoring}
+        \Bullet{Raised software design, algorithm, and data structure knowledge via tutoring}
       }
       \vfill
       \ChronoSubsection{Software Engineer Intern}{General Dynamics MS}{Fairfax, VA}{05/16}{08/16}{
-        \Bullet{Awarded as one of the 1st interns delivering mission critical product}
         \Bullet{Reduced build time by 5 minutes in JavaFX, Maven app via multithreading}
-        \Bullet{Achieved real-time data communication and storage via Derby database}
       }
     \vfill
     \section{Projects}
-      \ChronoSubsection{Code Snippets}{\Website{codepen.io/davekwiatkowski}}{CodePen}{01/17}{Present}{
-        \Bullet{Makes computer graphics using Pug, Sass, and Vanilla Javascript}
-        \Bullet{Receives praise and recognition in forks and showcases of my projects}
-      }
-      \vfill
-      \ChronoSubsection{Virtual Reality Tour App}{Xcvrsion}{Xcvrsion}{05/19}{09/19}{
-        \Bullet{Created a VR app for iOS and Android via React Native and React Redux}
-        \Bullet{Accelerated development lifecycle via customer and user demos}
-        \Bullet{Increased user experience via modern UI principles and standards}
+      \ChronoSubsection{Cofounder}{Virtual Reality Tour App}{Blacksburg, VA}{05/19}{09/19}{
+        \Bullet{Created and demoed VR app via React Native, React Redux, and Viro React}
       }
     \pagebreak
   \end{leftcolumn}
   \begin{rightcolumn}
     \section{Skills}
       \Subsection{Coding}{
-        \Bullet{Proficient with JavaScript, TypeScript, React, React Native, Node.js, Sass/SCSS, CSS, HTML, C Sharp, Java, Kusto Query}
-        \Bullet{Familiar with Angular, ASP.NET Core, jQuery, Objective-C}
+        \Bullet{Proficient with JavaScript, TypeScript, React, React Native, Node.js, Sass/SCSS, CSS, HTML, Java, Kusto Query}
+        \Bullet{Familiar with C Sharp, Angular, ASP.NET Core, jQuery, Objective-C}
       }
       \vfill
       \Subsection{Topics}{
-        \Bullet{Web development, Front-end development, Full-stack development, Telemetry and metrics, Web performance, Algorithms, Computer graphics, Design, Android development, iOS development}
+        \Bullet{Web development, Front-end development, Full-stack development, Telemetry and metrics, Web performance, Data structures, Algorithms, Web components, Integration/Unit testing, Computer graphics, Design, Android development, iOS development}
       }
       \vfill
       \Subsection{Tools}{
-        \Bullet{Web components, Integration/Unit testing, Web performance tools, Git, Storybook, Gulp, Unix CLI, Jira}
-      }
-    \vfill
-    \section{Leadership}
-      \Subsection{Xcvrsion LLC}{
-        \ChronoBullet{Chief Technology Officer}{05/19}{09/19}
+        \Bullet{Git, Storybook, Gulp, Jira, Figma, Web performance tools, Accessibility tools}
       }
     \vfill
     \section{Education}
       \Subsection{Virginia Tech}{
         \Bullet{BS, Computer Science}
-        \Bullet{Graduated Cum Laude}
       }
     \pagebreak
   \end{rightcolumn}
