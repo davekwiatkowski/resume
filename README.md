@@ -1,5 +1,7 @@
 # Dave Kwiatkowski's resume
 
+Link to resume: https://davekwiatkowski.com/resume/davek.pdf
+
 ## Note
 
 This LaTeX file makes use of [XeLaTeX](https://www.sharelatex.com/learn/XeLaTeX) in order to use custom fonts
