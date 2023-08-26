@@ -1,6 +1,6 @@
 # Dave Kwiatkowski's resume
 
-Link to resume: https://davekwiatkowski.com/resume/davek.pdf
+Link to resume: [https://davekwiatkowski.com/resume/davek.pdf](https://davekwiatkowski.com/resume/davek.pdf)
 
 ## Note
 
