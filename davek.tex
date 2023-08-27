@@ -20,7 +20,7 @@
 \definecolor{darkColor}{HTML}{000000}
 \definecolor{normalColor}{HTML}{757575}
 \definecolor{lightColor}{HTML}{757575}
-\definecolor{accentColor}{HTML}{949494}
+\definecolor{accentColor}{HTML}{6161FF}
 
 \colorlet{title}{darkColor}
 \colorlet{subtitle}{darkColor}
@@ -51,7 +51,7 @@
 \newcommand{\Bullet}[1]{\item\SideBox{\BulletMark}{\color{bullet}#1}}
 \newcommand{\Bullets}[1]{\begin{trivlist}#1\end{trivlist}}
 \newcommand{\Setting}[1]{{\color{setting}\small\textit{#1}}}
-\newcommand{\Subtitle}[1]{{\color{subtitle}\large\bfseries#1}}
+\newcommand{\Subtitle}[1]{{\color{subtitle}\bfseries#1}}
 \newcommand{\SubtitleInfo}[1]{{\color{subtitleInfo}#1}}
 \newcommand{\SubtitleAndInfo}[2]{\Subtitle{#1}\InfoSep\SubtitleInfo{#2}}
 \newcommand{\Date}[1]{\Setting{#1}}
@@ -65,13 +65,13 @@
 \newcommand{\Email}[1]{{\href{mailto:#1}{#1}}}
 
 % title formatting
-\titleformat{\section}{\color{section}\huge\bfseries}{}{0em}{}[]
+\titleformat{\section}{\color{section}\large\bfseries}{}{0em}{}[]
 
 % renew commands
 \renewcommand{\baselinestretch}{1}
 \renewcommand{\maketitle}{%
   {\color{title}\huge\bfseries\theauthor\space}%
-  {\color{link}\small\Website{davekwiatkowski.com}\LinkSep\Email{d@davekwiatkowski.com}}%
+  {\color{link}\Website{davekwiatkowski.com}\LinkSep\Email{d@davekwiatkowski.com}}%
   \vspace{3em}
 }
 
@@ -99,7 +99,7 @@
       }
       \vfill
       \ChronoSubsection{Software Engineer Intern}{Microsoft}{Bellevue, WA}{09/18}{11/18}{
-        \Bullet{Revamped entire mobile app by introducing cross-product React Native}
+        \Bullet{Revamped the entire mobile app by introducing cross-product React Native}
         \Bullet{Saved service time via automated incident alerts and automated CMS remedies}
         \Bullet{Increased accessibility of React Redux products via React Native A11y}
       }
