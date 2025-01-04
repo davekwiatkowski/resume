@@ -32,7 +32,7 @@
 \colorlet{bulletMark}{lightColor}
 
 % settings
-\author{Dave Kwiatkowski}
+\author{Dave~Kwiatkowski}
 \setmainfont{Roboto}
 \pagenumbering{gobble}
 \maxdeadcycles=400
@@ -44,25 +44,19 @@
 % new commands
 \newcommand{\LinkSep}{ • }
 \newcommand{\DateSep}{ -- }
-\newcommand{\InfoSep}{ • }
-\newcommand{\BulletMark}{{\color{bulletMark}\large\bfseries.}}
+\newcommand{\BulletMark}{{\color{bulletMark}\footnotesize•}}
 \newcommand{\SideBox}[1]{\makebox(-3.5,3.5)[rt]{#1}}
 \newcommand{\Bullet}[1]{\item\SideBox{\BulletMark}{\color{bullet}#1}}
 \newcommand{\Bullets}[1]{\begin{trivlist}#1\end{trivlist}}
 \newcommand{\Setting}[1]{{\color{setting}\small\textit{#1}}}
 \newcommand{\Subtitle}[1]{{\color{subtitle}\bfseries#1}}
 \newcommand{\SubtitleInfo}[1]{{\color{subtitleInfo}#1}}
-\newcommand{\SubtitleAndInfo}[2]{
-  \Subtitle{#1}\InfoSep\SubtitleInfo{#2}%
-}
 \newcommand{\Date}[1]{\Setting{#1}}
 \newcommand{\Dates}[2]{\ifthenelse{\isempty{#2}}{\Date{#1}}{\Date{#1}\Setting{\DateSep}\Date{#2}}}
 \newcommand{\Subsection}[2]{\Subtitle{#1}\Bullets{#2}}
-\newcommand{\ChronoBullet}[3]{\Bullet{#1\InfoSep\Dates{#2}{#3}}}
 \newcommand{\ChronoSubsection}[6]{
-  \Subtitle{#2}\hfill\Dates{#4}{#5}
-  \linebreak
-  \SubtitleInfo{#1}\hfill\Setting{#3}%
+  \Subtitle{#2}\hfill\Setting{#3}\\
+  \SubtitleInfo{#1}\hfill\Dates{#4}{#5}
   \ifthenelse{\isempty{#6}}{}{\Bullets{#6}}%
 }
 \newcommand{\Website}[1]{{\href{https://#1}{#1}}}
@@ -70,51 +64,60 @@
 \newcommand{\Phone}[1]{{\href{tel:#1}{#1}}}
 
 % title formatting
-\titleformat{\section}{\color{section}\bfseries}{}{0em}{}[]
+\titleformat{\section}{\color{section}\bfseries}{}{0em}{}[\noindent\rule{\linewidth}{0.4pt}]
 
 % renew commands
 \renewcommand{\baselinestretch}{1}
 \renewcommand{\maketitle}{%
-  {\color{title}\large\bfseries\theauthor}%
-  \hfill%
-  {\color{link}\small\Phone{434-962-5412}\LinkSep\Email{d@davekwiatkowski.com}\LinkSep\Website{davekwiatkowski.com}}%
-  \vspace{3em}
+  {\color{title}\Large\bfseries\theauthor}\hfill
+  {
+    \color{link}\small
+    \Phone{434-962-5412}\LinkSep
+    \Email{d@davekwiatkowski.com}\LinkSep
+    \Website{davekwiatkowski.com}
+  }%
 }
 
 % document
 \begin{document}
 \maketitle
-\section{Education}
-  \ChronoSubsection{Bachelor of Science, Computer Science}{Virginia Tech}{Blacksburg, VA}{Aug 2015}{May 2019}{}
-  \vfill
+\vfill
 \section{Experience}
   \ChronoSubsection{Senior Software Engineer}{Confluent}{Remote}{Jan 2025}{Present}{
-    \Bullet{Starting January 2025}
+    \Bullet{Building a world-class online experience that fosters sophisticated consumer engagement}
   }
   \vfill
   \ChronoSubsection{Software Engineer}{Capital One}{McLean, VA}{Sep 2023}{Jan 2025}{
-    \Bullet{Developed important Extract, Transform, Load jobs using AWS Glue, Python, and PySpark}
-    \Bullet{Created web app features and bug fixes via AngularJS, TypeScript, and SCSS}
-    \Bullet{Researched and designed web architecture via Figma, AWS, and internal datasets and tools}
-    \Bullet{Produced mock data tooling via Yaml configs and Python and job scheduling via Airflow}
+    \Bullet{Smoothed customer experience and increased product reliability by leading and developing AWS Glue ETL jobs}
+    \Bullet{Researched, designed, and proposed web architecture by communicating across teams and using datasets, AWS, and Figma}
+    \Bullet{Created and wrote tests for customer facing web app features and bug fixes via AngularJS, TypeScript, and SCSS}
+    \Bullet{Increased debuggability by producing mock data tooling via Yaml configs and Python and scheduling jobs via Airflow}
   }
   \vfill
   \ChronoSubsection{Software Engineer II}{UiPath}{Bellevue, WA}{Mar 2021}{Feb 2023}{
-    \Bullet{Built React, Angular, and StencilJS web components shared between products}
-    \Bullet{Delivered complex web app pages for Cloud, Kubernetes, and MSI environments}
-    \Bullet{Initiated and elevated testability via Playwright, Storybook, Cypress, and Jest}
-    \Bullet{Removed hundreds of Node.JS security vulnerabilities via cross-repo GitHub Actions}
+    \Bullet{Increased cohesiveness and efficiency by building React, Angular, and StencilJS web components shared between products}
+    \Bullet{Delivered complex web app pages for Cloud, Kubernetes, and MSI environments and serviced them after talking with customers}
+    \Bullet{Initiated and elevated automatic testability in components and products via Playwright, Storybook, Cypress, and Jest}
+    \Bullet{Removed hundreds of Node.JS security vulnerabilities after building and sharing cross-repo GitHub Actions}
   }
   \vfill
   \ChronoSubsection{Software Engineer II}{Microsoft}{Bellevue, WA}{Aug 2019}{Mar 2021}{
-    \Bullet{Decreased time to switch between iframes by 2+ seconds via caching shared data}
-    \Bullet{Eliminated 400 ms from server response time via server response streaming in C~Sharp}
-    \Bullet{Cleared memory leaks in React via resource disposal and state management optimization}
+    \Bullet{Decreased time to switch between iframes by 2+ seconds by caching shared and most recently used data on client}
+    \Bullet{Eliminated 400 ms from server response time by using asynchronous server response streaming in ASP.NET and C~Sharp}
+    \Bullet{Cleared countless memory leaks in React by using resource disposal, memoization, and optimizing state management}
+  }
+\vfill
+\section{Education \& Certifications}
+  \ChronoSubsection{Bachelor of Science, Computer Science}{Virginia Tech}{Blacksburg, VA}{}{}{
+    \Bullet{Software Design, Data Structures, Algorithms, Systems, GUI, Human Computer Interaction, Languages, C, Java, Python}
   }
   \vfill
+  \ChronoSubsection{AWS Certified Solutions Architect - Associate}{Amazon Web Services (AWS)}{}{Jan 2024}{}{
+    \Bullet{Systems design; when and how to apply AWS services for compute, storage, database, networking, monitoring, and security}
+  }
+\vfill
 \section{Skills}
   \Subsection{Coding}{
-    \Bullet{Proficient with JavaScript, TypeScript, React, Python, Node.js, PostgreSQL, Pandas, PySpark, React~Native, Java, Express.js, CSS, HTML, Sass/SCSS, AngularJS}
-    \Bullet{Familiar with StencilJS, C~Sharp, Kusto~Query, ASP.NET~Core}
+    \Bullet{JavaScript, TypeScript, React, Python, Node.js, PostgreSQL, Pandas, PySpark, React~Native, Java, Express.js, CSS, HTML, Sass/SCSS, AngularJS, StencilJS, C~Sharp, Kusto~Query, ASP.NET~Core}
   }
 \end{document}
