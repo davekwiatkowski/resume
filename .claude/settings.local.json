@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(latexmk -xelatex -interaction=nonstopmode davek.tex)",
+      "Bash(mdls -name kMDItemTitle -name kMDItemAuthors -name kMDItemKeywords davek.pdf)",
+      "Bash(exiftool davek.pdf)",
+      "Bash(python3 -c ':*)",
+      "Bash(mdls -name kMDItemAuthors davek.pdf)",
+      "Bash(python3:*)",
+      "Bash(mdls:*)",
+      "Bash(git stash:*)",
+      "Bash(git apply:*)",
+      "Bash(git diff:*)"
+    ]
+  }
+}
